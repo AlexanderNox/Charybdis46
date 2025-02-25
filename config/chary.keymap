@@ -9,7 +9,6 @@
 #define SYMBOL  2
 #define HOTKEY  3
 
-#define AS(keycode) &as LS(keycode) keycode
 
 / {
     
