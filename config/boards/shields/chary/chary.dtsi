@@ -49,7 +49,7 @@
 		transform = <&default_transform>;
 
          keys  //                     w   h    x    y     rot    rx    ry
-           = <&key_physical_attrs 100 100    0   38       0     0     0>
+            = <&key_physical_attrs 100 100    0   38       0     0     0>
             , <&key_physical_attrs 100 100  100   38       0     0     0>
             , <&key_physical_attrs 100 100  200   13       0     0     0>
             , <&key_physical_attrs 100 100  300    0       0     0     0>
@@ -97,18 +97,18 @@
             , <&key_physical_attrs 100 100 1375  313       0     0     0>
             , <&key_physical_attrs 100 100 1475  338       0     0     0>
             , <&key_physical_attrs 100 100 1575  338       0     0     0>
+            , <&key_physical_attrs 100 100  625  600    3000   650   425>
+            , <&key_physical_attrs 100 100  625  500    3000   650   425>
             , <&key_physical_attrs 100 100  200  413       0     0     0>
             , <&key_physical_attrs 100 100  300  400       0     0     0>
-            , <&key_physical_attrs 100 100  625  500    3000   650   425>
-            , <&key_physical_attrs 100 100  625  600    3000   650   425>
             , <&key_physical_attrs 100 100  725  600    3000   650   425>
             , <&key_physical_attrs 100 100  725  500    3000   650   425>
-            , <&key_physical_attrs 100 100 1000  475 (-3000)  1300   425>
-            , <&key_physical_attrs 100 100 1100  475 (-3000)  1300   425>
+            , <&key_physical_attrs 100 100  900  375 (-3000)  1300   425>
+            , <&key_physical_attrs 100 100  900  475 (-3000)  1300   425>
             , <&key_physical_attrs 100 100 1275  400       0     0     0>
             , <&key_physical_attrs 100 100 1375  413       0     0     0>
-            , <&key_physical_attrs 100 100  900  475 (-3000)  1300   425>
-            , <&key_physical_attrs 100 100  900  375 (-3000)  1300   425>
+            , <&key_physical_attrs 100 100 1000  475 (-3000)  1300   425>
+            , <&key_physical_attrs 100 100 1100  475 (-3000)  1300   425>
             ;
     };
 
