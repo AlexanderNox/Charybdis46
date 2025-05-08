@@ -107,5 +107,17 @@
             ;
     };
 
+/ {
+    behaviors {
+        mk_scroll_x: scroll_x {
+            compatible = "zmk,behavior-sensor-scroll";
+            direction = "horizontal";
+        };
+        mk_scroll_y: scroll_y {
+            compatible = "zmk,behavior-sensor-scroll";
+            direction = "vertical";
+        };
+    };
+};
 
 };
