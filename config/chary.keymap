@@ -89,6 +89,15 @@
         };
     };
 
+    behaviors {
+        scroll: scroll {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            label = "SCROLL";
+            #sensor-binding-cells = <2>;
+            bindings = <&mkp>, <&mkp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
