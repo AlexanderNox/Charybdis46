@@ -41,11 +41,13 @@
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings = <
-                &macro_press   &kp LALT
-                &macro_tap     &kp KP_N4 &kp KP_N6
-                &macro_release &kp LALT
-            >;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N4 &kp KP_N6>,
+                <&macro_release>,
+                <&kp LALT>;
         };
     };
 
@@ -123,11 +125,11 @@
 
         Add-Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans   &trans   &trans
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8              &kp F9  &kp F10  &kp F11  &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(LEFT_SHIFT)  &trans  &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans   &trans   &trans
-        &trans  &trans  &trans  &trans  &trans          &trans              &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans              &trans      &trans   &trans   &trans
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8              &kp F9      &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(LEFT_SHIFT)  &Macro_dot  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans              &trans      &trans   &trans   &trans
+        &trans  &trans  &trans  &trans  &trans          &trans              &trans      &trans
             >;
         };
 
