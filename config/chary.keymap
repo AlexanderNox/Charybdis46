@@ -66,6 +66,11 @@
             key-positions = <19 20>;
             layers = <0>;
         };
+
+        Scroll {
+            bindings = <&mo 1>;
+            key-positions = <27 28>;
+        };
     };
 
     keymap {
