@@ -100,11 +100,11 @@
         number_layer {
             label = "NUMBER";
             bindings = <
-&trans  &trans        &trans          &trans                       &trans                          &trans     &trans         &trans     &trans          &trans     &trans  &trans
-&trans  &trans        &kp NUMBER_2    &kp NUMBER_3                 &kp NUMBER_4                    &kp N5     &kp NUMBER_6   &kp N7     &kp N8          &kp N9     &trans  &trans
-&trans  &kp NUMBER_1  &mt LEFT_ALT Q  &mt LEFT_SHIFT LEFT_BRACKET  &mt LEFT_CONTROL RIGHT_BRACKET  &kp EQUAL  &kp BACKSPACE  &kp LEFT   &kp UP_ARROW    &kp RIGHT  &kp P   &trans
-&trans  &kp N0        &kp ESC         &kp GRAVE                    &kp APOSTROPHE                  &kp MINUS  &kp DELETE     &kp ENTER  &kp DOWN_ARROW  &kp CAPS   &to 4   &trans
-        &trans        &trans          &trans                       &trans                          &trans                    &trans     &trans          &trans
+&trans  &trans        &trans          &trans                       &trans                          &trans     &trans         &trans                 &trans                   &trans              &trans  &trans
+&trans  &trans        &kp NUMBER_2    &kp NUMBER_3                 &kp NUMBER_4                    &kp N5     &kp NUMBER_6   &kp N7                 &kp N8                   &kp N9              &trans  &trans
+&trans  &kp NUMBER_1  &mt LEFT_ALT Q  &mt LEFT_SHIFT LEFT_BRACKET  &mt LEFT_CONTROL RIGHT_BRACKET  &kp EQUAL  &kp BACKSPACE  &mt LEFT_CONTROL LEFT  &mt LEFT_SHIFT UP_ARROW  &mt LEFT_ALT RIGHT  &kp P   &trans
+&trans  &kp N0        &kp ESC         &kp GRAVE                    &kp APOSTROPHE                  &kp MINUS  &kp DELETE     &kp ENTER              &kp DOWN_ARROW           &kp CAPS            &to 4   &trans
+        &trans        &trans          &trans                       &trans                          &trans                    &trans                 &trans                   &trans
             >;
         };
 
