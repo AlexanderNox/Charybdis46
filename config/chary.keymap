@@ -79,11 +79,11 @@
         default_layer {
             label = "DEFAULT";
             bindings = <
-&trans            &trans  &trans  &trans        &trans              &trans  &trans  &trans              &trans            &trans   &trans    &kp RBKT
-&kp TAB           &kp Q   &kp W   &kp E         &kp R               &kp T   &kp Y   &kp U               &kp I             &kp O    &kp P     &kp LBKT
-&kp CAPSLOCK      &kp A   &kp S   &kp D         &mt LEFT_CONTROL F  &kp G   &kp H   &mt LEFT_CONTROL J  &mt LEFT_SHIFT K  &kp L    &kp SEMI  &kp SQT
-&kp LEFT_CONTROL  &kp Z   &kp X   &kp C         &kp V               &kp B   &kp N   &kp M               &kp COMMA         &kp DOT  &kp FSLH  &kp LEFT_ALT
-                  &trans  &mo 3   &kp LEFT_WIN  &trans              &trans          &trans              &kp SPACE         &mo 2
+&trans  &trans   &trans          &trans            &trans              &trans  &trans  &trans              &trans            &trans          &trans    &kp RBKT
+&trans  &trans   &kp W           &kp E             &kp R               &kp T   &kp Y   &kp U               &kp I             &kp O           &kp P     &kp LBKT
+&trans  &kp A    &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LEFT_CONTROL F  &kp G   &kp H   &mt LEFT_CONTROL J  &mt LEFT_SHIFT K  &mt LEFT_ALT L  &kp SEMI  &kp SQT
+&trans  &kp Z    &kp X           &kp C             &kp V               &kp B   &kp N   &kp M               &kp COMMA         &kp DOT         &kp FSLH  &trans
+        &kp TAB  &mo 3           &kp LEFT_WIN      &trans              &trans          &trans              &kp SPACE         &mo 2
             >;
         };
 
@@ -100,32 +100,32 @@
         number_layer {
             label = "NUMBER";
             bindings = <
-&trans   &trans        &trans        &trans        &trans        &trans     &trans         &trans     &trans          &trans     &trans  &trans
-&kp ESC  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5     &kp NUMBER_6   &kp N7     &kp N8          &kp N9     &kp N0  &trans
-&trans   &trans        &trans        &trans        &kp GRAVE     &kp EQUAL  &kp BACKSPACE  &kp LEFT   &kp UP_ARROW    &kp RIGHT  &to 4   &trans
-&trans   &trans        &trans        &trans        &trans        &kp MINUS  &kp DELETE     &kp ENTER  &kp DOWN_ARROW  &trans     &trans  &trans
-         &trans        &trans        &trans        &trans        &trans                    &trans     &trans          &trans
+&trans  &trans        &trans          &trans          &trans            &trans     &trans         &trans     &trans          &trans     &trans  &trans
+&trans  &trans        &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4      &kp N5     &kp NUMBER_6   &kp N7     &kp N8          &kp N9     &trans  &trans
+&trans  &kp NUMBER_1  &mt LEFT_ALT Q  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp EQUAL  &kp BACKSPACE  &kp LEFT   &kp UP_ARROW    &kp RIGHT  &to 4   &trans
+&trans  &kp N0        &kp ESC         &kp CAPSLOCK    &kp GRAVE         &kp MINUS  &kp DELETE     &kp ENTER  &kp DOWN_ARROW  &trans     &to 4   &trans
+        &trans        &trans          &trans          &trans            &trans                    &trans     &trans          &trans
             >;
         };
 
         Add-Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans              &trans      &trans   &trans   &trans
-&trans  &kp F1  &kp F3  &kp F4  &kp F5     &kp F6     &kp F7  &kp F8              &kp F9      &kp F10  &kp F11  &kp F12
-&trans  &trans  &trans  &mo 1   &mkp LCLK  &mkp RCLK  &trans  &kp LA(LEFT_SHIFT)  &Macro_dot  &trans   &trans   &trans
-&trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans              &trans      &trans   &trans   &trans
-        &trans  &trans  &trans  &trans     &trans             &trans              &trans      &trans
+&trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans      &trans   &trans   &trans
+&trans  &kp F1  &kp F3  &kp F4  &kp F5     &kp F6     &kp F7  &kp F8  &kp F9      &kp F10  &kp F11  &kp F12
+&trans  &trans  &trans  &mo 1   &mkp LCLK  &mkp RCLK  &trans  &trans  &Macro_dot  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans      &trans   &trans   &trans
+        &trans  &trans  &trans  &trans     &trans             &trans  &trans      &trans
             >;
         };
 
         symbol_layer {
             label = "SYMBOL";
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&sys_reset    &none         &none         &none         &none         &out OUT_USB  &out OUT_USB  &none         &none         &none         &none         &sys_reset
-&bootloader   &none         &none         &none         &none         &out OUT_BLE  &out OUT_BLE  &none         &none         &none         &none         &bootloader
-&none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &none
-              &to 0         &none         &none         &none         &none                       &none         &none         &to 0
+&trans  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
+&trans  &bt BT_SEL 0  &none         &none         &none         &out OUT_USB  &out OUT_USB  &none         &none         &none         &none         &trans
+&trans  &sys_reset    &none         &none         &none         &out OUT_BLE  &out OUT_BLE  &none         &none         &none         &sys_reset    &trans
+&trans  &bootloader   &none         &none         &none         &none         &bt BT_CLR    &none         &none         &none         &bootloader   &trans
+        &none         &to 0         &none         &none         &none                       &none         &none         &to 0
             >;
         };
     };
