@@ -8,6 +8,21 @@
 #include <physical_layouts.dtsi>
 
 / {
+
+    
+    behaviors {
+        mt: mod_tap {
+            compatible = "zmk,behavior-mod-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";       // тап при отпускании
+            tapping-term-ms = <150>;        // можно подстроить под себя
+            quick-tap-ms = <0>;             // отключить раннее определение
+            release-after-tap;              // сразу отпускает модификатор
+        };
+    };
+
+
+         
 	chosen {
 
 		zmk,kscan = &kscan0;
