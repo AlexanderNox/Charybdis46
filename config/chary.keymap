@@ -51,7 +51,7 @@
                 <&kp LALT>;
         };
 
-          Macro_comma: macro_comma {
+        Macro_comma: macro_comma {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <5>;
@@ -84,7 +84,7 @@
         };
 
         Scroll {
-            bindings = <&mo 1>;
+            bindings = <&mo 0>;
             key-positions = <27 28>;
         };
     };
@@ -92,39 +92,29 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        Main-Layer {
             label = "DEFAULT";
             bindings = <
-&trans  &trans   &trans          &trans            &trans              &trans  &trans  &trans              &trans            &trans          &trans    &trans
-&trans  &trans   &kp W           &kp E             &kp R               &kp T   &kp Y   &kp U               &kp I             &kp O           &trans    &trans
-&trans  &kp A    &mt LEFT_ALT S  &mt LEFT_SHIFT D  &mt LEFT_CONTROL F  &kp G   &kp H   &mt LEFT_CONTROL J  &mt LEFT_SHIFT K  &mt LEFT_ALT L  &kp SEMI  &trans
-&trans  &kp Z    &kp X           &kp C             &kp V               &kp B   &kp N   &kp M               &kp COMMA         &kp DOT         &kp FSLH  &trans
-        &kp TAB  &mo 3           &kp LEFT_WIN      &trans              &trans          &trans              &kp SPACE         &mo 2
+&trans   &trans        &trans  &trans        &trans  &trans  &trans  &trans              &trans            &trans          &trans    &trans
+&kp TAB  &kp Q         &kp W   &kp E         &kp R   &kp T   &kp Y   &kp U               &kp I             &kp O           &trans    &trans
+&trans   &kp A         &kp S   &kp D         &kp F   &kp G   &kp H   &mt LEFT_CONTROL J  &mt LEFT_SHIFT K  &mt LEFT_ALT L  &kp SEMI  &trans
+&trans   &kp Z         &kp X   &kp C         &kp V   &kp B   &kp N   &kp M               &kp COMMA         &kp DOT         &kp FSLH  &trans
+         &kp LEFT_WIN  &mo 2   &kp LEFT_ALT  &trans  &trans          &trans              &kp SPACE         &mo 1
             >;
         };
 
-        Scroll {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans
-            >;
-        };
-
-        number_layer {
+        RightSupport-Layer {
             label = "NUMBER";
             bindings = <
-&trans  &trans        &trans          &trans                       &trans                          &trans     &trans         &trans                 &trans                   &trans              &trans  &trans
-&trans  &trans        &kp NUMBER_2    &kp NUMBER_3                 &kp NUMBER_4                    &kp N5     &kp NUMBER_6   &kp N7                 &kp N8                   &kp N9              &trans  &trans
-&trans  &kp NUMBER_1  &mt LEFT_ALT Q  &mt LEFT_SHIFT LEFT_BRACKET  &mt LEFT_CONTROL RIGHT_BRACKET  &kp EQUAL  &kp BACKSPACE  &mt LEFT_CONTROL LEFT  &mt LEFT_SHIFT UP_ARROW  &mt LEFT_ALT RIGHT  &kp P   &trans
-&trans  &kp N0        &kp ESC         &kp GRAVE                    &kp APOSTROPHE                  &kp MINUS  &kp DELETE     &kp ENTER              &kp DOWN_ARROW           &kp CAPS            &to 4   &trans
+&trans  &trans        &trans          &trans                       &trans                          &trans     &trans         &trans                 &trans                   &trans              &trans        &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3                 &kp NUMBER_4                    &kp N5     &kp NUMBER_6   &kp N7                 &kp N8                   &kp N9              &kp NUMBER_0  &trans
+&trans  &trans        &mt LEFT_ALT Q  &mt LEFT_SHIFT LEFT_BRACKET  &mt LEFT_CONTROL RIGHT_BRACKET  &kp EQUAL  &kp BACKSPACE  &mt LEFT_CONTROL LEFT  &mt LEFT_SHIFT UP_ARROW  &mt LEFT_ALT RIGHT  &kp P         &trans
+&trans  &kp N0        &kp ESC         &kp GRAVE                    &kp APOSTROPHE                  &kp MINUS  &kp DELETE     &kp ENTER              &kp DOWN_ARROW           &kp CAPS            &to 3         &trans
         &trans        &trans          &trans                       &trans                          &trans                    &trans                 &trans                   &trans
             >;
         };
 
-        Add-Layer {
+        LeftSupport-Layer {
             bindings = <
 &trans  &trans  &trans  &trans          &trans     &trans     &trans  &trans              &trans      &trans   &trans   &trans
 &trans  &trans  &kp F3  &kp F4          &kp F5     &kp F6     &kp F7  &kp F8              &kp F9      &kp F10  &trans   &trans
@@ -134,13 +124,13 @@
             >;
         };
 
-        symbol_layer {
+        Functional-Layer {
             label = "SYMBOL";
             bindings = <
-&trans  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR
-&trans  &bt BT_SEL 0  &none         &none         &none         &out OUT_USB  &out OUT_USB  &none         &none         &none         &none         &trans
-&trans  &sys_reset    &none         &none         &none         &out OUT_BLE  &out OUT_BLE  &none         &none         &none         &sys_reset    &trans
-&trans  &bootloader   &none         &none         &none         &none         &bt BT_CLR    &none         &none         &none         &bootloader   &trans
+&trans  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &trans        &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans
+&trans  &trans        &none         &none         &none         &out OUT_USB  &out OUT_USB  &none         &none         &none         &none         &trans
+&trans  &trans        &none         &none         &bt BT_SEL 0  &out OUT_BLE  &out OUT_BLE  &bt BT_SEL 0  &none         &none         &sys_reset    &trans
+&trans  &trans        &none         &sys_reset    &bootloader   &bt BT_CLR    &bt BT_CLR    &bootloader   &sys_reset    &none         &bootloader   &trans
         &none         &to 0         &none         &none         &none                       &none         &none         &to 0
             >;
         };
