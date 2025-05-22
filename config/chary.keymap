@@ -70,21 +70,15 @@
     combos {
         compatible = "zmk,combos";
 
-        Backspace {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <31 32>;
-            layers = <0>;
-        };
-
         Delete {
             bindings = <&kp DELETE>;
-            key-positions = <19 20>;
+            key-positions = <28 27>;
             layers = <0>;
         };
 
-        Scroll {
-            bindings = <&mo 0>;
-            key-positions = <27 28>;
+        Enter {
+            bindings = <&kp ENTER>;
+            key-positions = <39 40>;
         };
     };
 
