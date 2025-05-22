@@ -72,13 +72,13 @@
 
         Delete {
             bindings = <&kp DELETE>;
-            key-positions = <28 27>;
+            key-positions = <39 40>;
             layers = <0>;
         };
 
         Enter {
             bindings = <&kp ENTER>;
-            key-positions = <39 40>;
+            key-positions = <27 28>;
         };
     };
 
