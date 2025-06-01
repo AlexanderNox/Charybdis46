@@ -140,11 +140,11 @@
 
         Game-Main-Layer {
             bindings = <
-&trans  &trans            &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp TAB           &kp Q   &kp W         &kp E   &kp R   &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT_SHIFT    &kp A   &kp S         &kp D   &kp F   &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT_CONTROL  &kp Z   &kp X         &kp C   &kp V   &trans  &trans  &trans  &trans  &trans  &trans
-        &trans            &mo 5   &kp LEFT_ALT  &trans  &trans          &trans  &trans  &trans
+&trans  &trans            &trans     &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp TAB           &kp Q      &kp W         &kp E   &kp R   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT_SHIFT    &kp A      &kp S         &kp D   &kp F   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT_CONTROL  &kp Z      &kp X         &kp C   &kp V   &trans  &trans  &trans  &trans  &trans  &trans
+        &to 5             &kp SPACE  &kp LEFT_ALT  &trans  &trans          &trans  &trans  &trans
             >;
         };
 
