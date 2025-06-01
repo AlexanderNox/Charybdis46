@@ -80,6 +80,16 @@
             bindings = <&kp ENTER>;
             key-positions = <27 28>;
         };
+
+        ToWork {
+            bindings = <&to 0>;
+            key-positions = <28 29>;
+        };
+
+        ToGame {
+            bindings = <&to 4>;
+            key-positions = <40 41>;
+        };
     };
 
     keymap {
@@ -125,6 +135,26 @@
 &trans  &trans        &none         &none         &bt BT_SEL 0  &out OUT_BLE  &out OUT_BLE  &bt BT_SEL 0  &none         &none         &sys_reset    &trans
 &trans  &trans        &none         &sys_reset    &bootloader   &bt BT_CLR    &bt BT_CLR    &bootloader   &sys_reset    &none         &bootloader   &trans
         &none         &to 0         &none         &none         &none                       &none         &none         &to 0
+            >;
+        };
+
+        Game-Main-Layer {
+            bindings = <
+&trans  &trans            &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp TAB           &kp Q   &kp W         &kp E   &kp R   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT_SHIFT    &kp A   &kp S         &kp D   &kp F   &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LEFT_CONTROL  &kp Z   &kp X         &kp C   &kp V   &trans  &trans  &trans  &trans  &trans  &trans
+        &trans            &mo 5   &kp LEFT_ALT  &trans  &trans          &trans  &trans  &trans
+            >;
+        };
+
+        Game-Support-Layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &kp NUMBER_1  &kp NUMBER_4  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &kp NUMBER_2  &kp N5        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &kp NUMBER_3  &kp NUMBER_6  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans        &trans                &trans  &trans  &trans
             >;
         };
     };
