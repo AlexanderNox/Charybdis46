@@ -65,6 +65,13 @@
             tap-ms = <5>;
             bindings = <&kp QUESTION>;
         };
+
+        altF4_macro: altF4_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none>;
+            label = "ALTF4_MACRO";
+        };
     };
 
     combos {
@@ -89,6 +96,12 @@
         ToGame {
             bindings = <&to 4>;
             key-positions = <40 41>;
+        };
+
+        altF4 {
+            bindings = <&kp LA(F4)>;
+            key-positions = <27 26>;
+            layers = <0 1 2 3>;
         };
     };
 
