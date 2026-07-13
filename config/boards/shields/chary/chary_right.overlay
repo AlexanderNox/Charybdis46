@@ -5,6 +5,8 @@
  */
 
 #include "chary.dtsi"
+#include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 &default_transform {
     col-offset = <6>;
@@ -54,16 +56,29 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        scroll-layers = <1>;
-        // snipe-layers = <>;
-        automouse-layer = <5>;
+        motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        zephyr,axis-x = <INPUT_REL_X>;
+        zephyr,axis-y = <INPUT_REL_Y>;
+        res-cpi = <2400>;
+        invert-x;
+        smart-mode;
     };
 };
 
 / {
+    auto_mouse_layer: auto_mouse_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+    };
+
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&zip_xy_swap_mapper>, <&auto_mouse_layer 5 0>;
+
+        scroll {
+            layers = <1>;
+            input-processors = <&zip_xy_swap_mapper>, <&zip_xy_to_scroll_mapper>;
+        };
     };
 };
