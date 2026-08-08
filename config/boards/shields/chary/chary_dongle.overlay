@@ -24,3 +24,7 @@
         compatible = "zmk,studio-rpc-usb-uart";
     };
 };
+
+&charybdis {
+    kscan = <&mock_kscan>;
+};

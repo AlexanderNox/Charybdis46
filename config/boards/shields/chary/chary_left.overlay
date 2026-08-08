@@ -26,6 +26,10 @@
     };
 };
 
+&charybdis {
+    kscan = <&kscan0>;
+};
+
 &kscan0 {
     col-gpios
         = <&pro_micro 9 (GPIO_ACTIVE_HIGH)> // COL0
