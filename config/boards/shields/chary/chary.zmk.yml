@@ -8,6 +8,10 @@ exposes: [i2c_oled]
 features:
   - keys
   - pointer
+  - studio
+physical_layouts:
+  - physical_layout: charybdis
 siblings:
   - chary_left
   - chary_right
+  - chary_dongle

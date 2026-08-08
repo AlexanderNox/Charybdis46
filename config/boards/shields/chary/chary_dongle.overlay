@@ -10,6 +10,7 @@
         zmk,kscan = &mock_kscan;
         zmk,matrix-transform = &default_transform;
         zmk,physical-layout = &charybdis;
+        zmk,studio-rpc-usb-uart = &app_studio_rpc_usb_uart;
     };
 
     mock_kscan: kscan_0 {
@@ -17,5 +18,9 @@
         columns = <0>;
         rows = <0>;
         events = <0>;
+    };
+
+    app_studio_rpc_usb_uart: app_studio_rpc_usb_uart {
+        compatible = "zmk,studio-rpc-usb-uart";
     };
 };
