@@ -6,9 +6,6 @@ if SHIELD_CHARY_RIGHT
 config ZMK_KEYBOARD_NAME
     default "Chary"
 
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
 endif
 
 if SHIELD_CHARY_LEFT || SHIELD_CHARY_RIGHT
