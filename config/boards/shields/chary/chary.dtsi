@@ -8,7 +8,12 @@
 #include <physical_layouts.dtsi>
 
 / {
-	kscan0: kscan { };
+	kscan0: kscan {
+		compatible = "zmk,kscan-mock";
+		columns = <0>;
+		rows = <0>;
+		events = <0>;
+	};
 
 	chosen {
 		zmk,physical-layout = &charybdis;
@@ -32,7 +37,6 @@
 		compatible = "zmk,physical-layout";
 		display-name = "matrix layout";
 		transform = <&default_transform>;
-		kscan = <&kscan0>;
 
          keys  //                     w   h    x    y     rot    rx    ry
              = <&key_physical_attrs 100 100    0   38       0     0     0>
