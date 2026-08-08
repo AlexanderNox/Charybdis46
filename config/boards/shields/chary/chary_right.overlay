@@ -28,10 +28,6 @@
     };
 };
 
-&charybdis {
-    kscan = <&kscan0>;
-};
-
 &default_transform {
     col-offset = <6>;
 };
