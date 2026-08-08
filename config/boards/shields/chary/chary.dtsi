@@ -8,6 +8,8 @@
 #include <physical_layouts.dtsi>
 
 / {
+	kscan0: kscan { };
+
 	chosen {
 		zmk,physical-layout = &charybdis;
 	};
