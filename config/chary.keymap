@@ -35,14 +35,7 @@
             bindings = <&kp LSHIFT &kp LBKT &kp RBKT &kp LEFT &kp LSHIFT>;
         };
 
-        TapDot: TapDot {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>;
-            label = "TAPDOT";
-        };
-
-        Macro_dot: macro_dot {
+        macro_dot: macro_dot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <5>;
@@ -139,7 +132,7 @@
             bindings = <
 &trans  &trans        &trans  &trans   &trans   &trans   &trans        &trans        &trans        &trans        &trans         &trans
 &trans  &kp ESCAPE    &kp F1  &kp F2   &kp F3   &kp F4   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp BACKSPACE  &kp BACKSLASH
-&trans  &kp GRAVE     &kp F5  &kp F6   &kp F7   &kp F8   &kp N5        &kp NUMBER_6  &kp N7        &kp N8        &kp ENTER      &Macro_dot
+&trans  &kp GRAVE     &kp F5  &kp F6   &kp F7   &kp F8   &kp N5        &kp NUMBER_6  &kp N7        &kp N8        &kp ENTER      &macro_dot
 &trans  &kp CAPSLOCK  &kp F9  &kp F10  &kp F11  &kp F12  &kp N9        &kp N0        &kp MINUS     &kp EQUAL     &kp DELETE     &trans
         &trans        &trans  &trans   &trans   &trans                 &trans        &trans        &trans
             >;
@@ -148,7 +141,7 @@
         Functional-Layer {
             label = "SYMBOL";
             bindings = <
-&trans  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR    &trans        &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR    &trans        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans
 &trans  &trans        &none         &none         &none         &out OUT_USB  &out OUT_USB  &none         &none         &none         &none         &trans
 &trans  &trans        &none         &none         &bt BT_SEL 0  &out OUT_BLE  &out OUT_BLE  &bt BT_SEL 0  &none         &none         &sys_reset    &trans
 &trans  &trans        &none         &sys_reset    &bootloader   &bt BT_CLR    &bt BT_CLR    &bootloader   &sys_reset    &none         &bootloader   &trans
@@ -169,9 +162,9 @@
         Game-Support-Layer {
             bindings = <
 &trans  &trans   &trans  &trans  &trans        &trans        &trans  &trans   &trans   &trans   &trans  &trans
-&trans  &kp TAB  &trans  &trans  &kp NUMBER_1  &kp NUMBER_4  &kp F1  &kp F2   &kp F3   &kp F4   &trans  &trans
-&trans  &trans   &trans  &trans  &kp NUMBER_2  &kp N5        &kp F5  &kp F6   &kp F7   &kp F8   &trans  &trans
-&trans  &trans   &trans  &trans  &kp NUMBER_3  &kp NUMBER_6  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans
+&trans  &kp TAB  &kp Q  &kp W  &kp E  &kp R  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &trans  &trans
+&trans  &trans   &trans  &trans  &kp NUMBER_5  &kp NUMBER_6  &kp F5  &kp F6   &kp F7   &kp F8   &trans  &trans
+&trans  &trans   &trans  &trans  &kp NUMBER_7  &kp NUMBER_8  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans
         &trans   &trans  &trans  &trans        &trans                &trans   &trans   &trans
             >;
         };
