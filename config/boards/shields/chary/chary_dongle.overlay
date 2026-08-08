@@ -13,14 +13,14 @@
         zmk,studio-rpc-usb-uart = &app_studio_rpc_usb_uart;
     };
 
-    kscan0: kscan_0 {
-        compatible = "zmk,kscan-mock";
-        columns = <12>;
-        rows = <5>;
-        events = <0>;
-    };
-
     app_studio_rpc_usb_uart: app_studio_rpc_usb_uart {
         compatible = "zmk,studio-rpc-usb-uart";
     };
+};
+
+&kscan0 {
+    compatible = "zmk,kscan-mock";
+    columns = <12>;
+    rows = <5>;
+    events = <0>;
 };
