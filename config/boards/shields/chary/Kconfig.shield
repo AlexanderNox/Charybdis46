@@ -7,3 +7,6 @@ config SHIELD_CHARY_LEFT
 config SHIELD_CHARY_RIGHT
     def_bool $(shields_list_contains,chary_right)
 
+config SHIELD_CHARY_DONGLE
+    def_bool $(shields_list_contains,chary_dongle)
+

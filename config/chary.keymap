@@ -9,6 +9,12 @@
 #define SYMBOL  2
 #define HOTKEY  3
 
+/ {
+    chosen {
+        zmk,matrix-transform = &default_transform;
+    };
+};
+
 #define AS(keycode) &as LS(keycode) keycode
 
 / {
@@ -80,7 +86,6 @@
         Delete {
             bindings = <&kp DELETE>;
             key-positions = <39 40>;
-            layers = <0>;
         };
 
         Enter {
