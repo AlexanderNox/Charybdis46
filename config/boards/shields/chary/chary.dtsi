@@ -10,7 +10,6 @@
 / {
 	kscan0: kscan {
 		compatible = "zmk,kscan-mock";
-		events = <0>;
 	};
 
 	chosen {
