@@ -40,10 +40,6 @@
     col-offset = <6>;
 };
 
-&charybdis {
-    kscan = <&kscan0>;
-};
-
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
