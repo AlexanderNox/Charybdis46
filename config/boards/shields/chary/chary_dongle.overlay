@@ -9,6 +9,7 @@
     chosen {
         zmk,kscan = &mock_kscan;
         zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &charybdis;
     };
 
     mock_kscan: kscan_0 {
@@ -17,4 +18,8 @@
         rows = <0>;
         events = <0>;
     };
+};
+
+&kscan0 {
+    col-gpios = <&pro_micro 0 GPIO_ACTIVE_HIGH>;
 };
