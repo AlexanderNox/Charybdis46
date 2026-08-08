@@ -10,8 +10,6 @@
 / {
 	kscan0: kscan {
 		compatible = "zmk,kscan-mock";
-		columns = <0>;
-		rows = <0>;
 		events = <0>;
 	};
 
