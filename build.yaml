@@ -1,4 +1,5 @@
-# This file generates the GitHub Actions matrix
+# This file generates the GitHub Actions matrix.
+# All Chary parts include the one-time legacy Bluetooth bond repair.
 # For simple board + shield combinations, add them
 # to the top level board and shield arrays, for more
 # control, add individual board + shield combinations to
