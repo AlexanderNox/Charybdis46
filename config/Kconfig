@@ -1,0 +1,7 @@
+config CHARY_PMW3610_PERIPHERAL_COMPAT
+    bool
+    default y if SHIELD_CHARY_RIGHT && ZMK_SPLIT && !ZMK_SPLIT_ROLE_CENTRAL && PMW3610
+    help
+      Supply the one keymap query required by the legacy PMW3610 driver when
+      the sensor is running on a split peripheral. Layer-based processing is
+      performed by the dongle instead.
