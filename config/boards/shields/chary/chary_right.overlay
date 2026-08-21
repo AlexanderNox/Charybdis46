@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include "chary.dtsi"
 
 / {
@@ -71,6 +72,15 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        /* The previous 2400 CPI / 4 software scaling is equivalent to 600 CPI. */
+        cpi = <600>;
+        /* Preserve the old 90-degree rotation plus X inversion. */
+        swap-xy;
+        invert-x;
+        invert-y;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
 };
 
