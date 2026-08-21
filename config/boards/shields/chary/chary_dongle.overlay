@@ -28,3 +28,7 @@
 &trackball_listener {
     status = "okay";
 };
+
+&trackball_split {
+    status = "okay";
+};
