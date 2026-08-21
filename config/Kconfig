@@ -14,3 +14,12 @@ config CHARY_BOND_REPAIR_ONCE
       Remove all legacy host and split Bluetooth bonds once, save a persistent
       migration marker, and reboot. Subsequent boots keep the newly established
       bonds normally.
+
+config CHARY_FORCE_LEGACY_SPLIT_PAIRING
+    bool
+    default y if (SHIELD_CHARY_LEFT || SHIELD_CHARY_RIGHT || SHIELD_CHARY_DONGLE) && ZMK_BLE
+    depends on BT && BT_SMP
+    help
+      Use BLE legacy Just Works pairing for the internal split link. This
+      avoids the ECDH Secure Connections path, which stalls indefinitely on
+      the affected dongle controller and ends in supervision timeout 0x08.
