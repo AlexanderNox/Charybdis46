@@ -5,3 +5,12 @@ config CHARY_PMW3610_PERIPHERAL_COMPAT
       Supply the one keymap query required by the legacy PMW3610 driver when
       the sensor is running on a split peripheral. Layer-based processing is
       performed by the dongle instead.
+
+config CHARY_BOND_REPAIR_ONCE
+    bool
+    default y if (SHIELD_CHARY_LEFT || SHIELD_CHARY_RIGHT || SHIELD_CHARY_DONGLE) && ZMK_BLE
+    depends on SETTINGS && BT
+    help
+      Remove all legacy host and split Bluetooth bonds once, save a persistent
+      migration marker, and reboot. Subsequent boots keep the newly established
+      bonds normally.
