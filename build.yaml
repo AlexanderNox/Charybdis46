@@ -12,6 +12,7 @@
 include:
   - board: nice_nano//zmk
     shield: chary_dongle
+    snippet: zmk-usb-logging
   - board: nice_nano//zmk
     shield: chary_left
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
