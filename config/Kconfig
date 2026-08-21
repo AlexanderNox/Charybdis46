@@ -15,3 +15,12 @@ config CHARY_FORCE_LEGACY_SPLIT_PAIRING
       Use BLE legacy Just Works pairing for the internal split link. This
       avoids the ECDH Secure Connections path, which stalls indefinitely on
       the affected dongle controller and ends in supervision timeout 0x08.
+
+config CHARY_SKIP_SPLIT_LAYOUT_SYNC
+    bool
+    default y if SHIELD_CHARY_DONGLE && ZMK_SPLIT_ROLE_CENTRAL
+    depends on ZMK_SPLIT && ZMK_SPLIT_ROLE_CENTRAL
+    help
+      Do not send the selected physical layout to split peripherals. Chary46
+      has one fixed physical layout and Studio is disabled, while this unused
+      write stalls the affected legacy-paired links until supervision timeout.
