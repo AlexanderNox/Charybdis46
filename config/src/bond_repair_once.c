@@ -7,7 +7,9 @@
 #include <zephyr/init.h>
 #include <zephyr/kernel.h>
 #include <zephyr/settings/settings.h>
-#include <zephyr/sys/reboot.h>
+
+#include <hal/nrf_power.h>
+#include <soc.h>
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_REGISTER(chary_bond_repair, LOG_LEVEL_INF);
@@ -18,6 +20,21 @@ LOG_MODULE_REGISTER(chary_bond_repair, LOG_LEVEL_INF);
 
 static bool repair_already_complete;
 static struct k_work_delayable repair_work;
+
+/*
+ * The Adafruit/nice!nano bootloader can leave EVENTS_POFWARN asserted while
+ * handing control to the application.  Zephyr's nRF52 flash driver treats
+ * that stale event as -ECANCELED and refuses the settings write.  Clear it
+ * immediately before the one-time recovery writes.  A real low-voltage
+ * condition will assert it again, so the flash driver's protection remains
+ * intact.
+ */
+static void clear_stale_power_warning(void) {
+    if (nrf_power_event_check(NRF_POWER, NRF_POWER_EVENT_POFWARN)) {
+        LOG_WRN("Clearing stale POFWARN before bond repair");
+        nrf_power_event_clear(NRF_POWER, NRF_POWER_EVENT_POFWARN);
+    }
+}
 
 static int repair_settings_set(const char *name, size_t len, settings_read_cb read_cb,
                                void *cb_arg) {
@@ -52,15 +69,11 @@ static void repair_work_handler(struct k_work *work) {
     }
 
     LOG_WRN("Removing every legacy Bluetooth and split bond");
+    clear_stale_power_warning();
 
     int err = bt_unpair(BT_ID_DEFAULT, BT_ADDR_LE_ANY);
     if (err && err != -ENOENT) {
         LOG_WRN("bt_unpair returned %d", err);
-    }
-
-    err = bt_disable();
-    if (err && err != -EALREADY) {
-        LOG_WRN("bt_disable returned %d", err);
     }
 
     delete_setting("ble/active_profile");
@@ -76,16 +89,15 @@ static void repair_work_handler(struct k_work *work) {
     }
 
     const uint8_t marker = REPAIR_MARKER;
+    clear_stale_power_warning();
     err = settings_save_one(REPAIR_SETTINGS_KEY, &marker, sizeof(marker));
     if (err) {
         LOG_ERR("Failed to save repair marker: %d", err);
-        k_work_reschedule(&repair_work, K_SECONDS(2));
+        LOG_ERR("Bond repair ran once; it will not loop or disable Bluetooth");
         return;
     }
 
-    LOG_INF("Legacy bonds removed; rebooting into clean pairing state");
-    k_sleep(K_MSEC(100));
-    sys_reboot(SYS_REBOOT_COLD);
+    LOG_INF("Legacy bonds removed; Bluetooth remains active for clean pairing");
 }
 
 static int repair_init(void) {
