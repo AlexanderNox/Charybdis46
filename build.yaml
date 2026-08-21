@@ -15,9 +15,11 @@ include:
     snippet: zmk-usb-logging
   - board: nice_nano//zmk
     shield: chary_left
+    snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano//zmk
     shield: chary_right
+    snippet: zmk-usb-logging
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano//zmk
     shield: settings_reset
