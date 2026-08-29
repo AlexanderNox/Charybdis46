@@ -16,6 +16,16 @@ config CHARY_FORCE_LEGACY_SPLIT_PAIRING
       avoids the ECDH Secure Connections path, which stalls indefinitely on
       the affected dongle controller and ends in supervision timeout 0x08.
 
+config CHARY_DONGLE_USB_PRIORITY
+    bool
+    default y if SHIELD_CHARY_DONGLE && ZMK_SPLIT_ROLE_CENTRAL
+    depends on ZMK_USB && ZMK_BLE
+    help
+      Always route HID reports over USB while the dongle USB interface is
+      ready. The BLE stack remains enabled for the internal split links, but a
+      saved or automatically reconnected host BLE profile cannot take output
+      away from the dongle's USB connection.
+
 config CHARY_SKIP_SPLIT_LAYOUT_SYNC
     bool
     default y if SHIELD_CHARY_DONGLE && ZMK_SPLIT_ROLE_CENTRAL
