@@ -5,9 +5,9 @@ does not recover within 30 seconds. Recovery is armed only after the first
 successful connection following boot, so powering a half while the dongle is
 off does not create a reboot loop or erase its Bluetooth bond.
 
-When upgrading from firmware using the `bond_v1` migration, flash the dongle
-and both halves from the same CI artifact. The `bond_v2` migration clears stale
-split bonds once on every part so they can establish matching bonds again.
+If the two sides of a split bond contain different encryption keys, firmware
+detects `PIN_OR_KEY_MISSING`, removes only that failed peer bond, and reconnects
+for a clean pairing. There is no delayed startup bond wipe or manual reset step.
 
 The normal CI artifact intentionally does not contain `settings_reset`.
 Flashing that recovery image erases Bluetooth bonds and must not be part of a

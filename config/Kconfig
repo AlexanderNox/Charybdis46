@@ -1,11 +1,11 @@
-config CHARY_BOND_REPAIR_ONCE
+config CHARY_SPLIT_BOND_RECOVERY
     bool
-    default y if (SHIELD_CHARY_LEFT || SHIELD_CHARY_RIGHT || SHIELD_CHARY_DONGLE) && ZMK_BLE
-    depends on SETTINGS && BT
+    default y if SHIELD_CHARY_LEFT || SHIELD_CHARY_RIGHT || SHIELD_CHARY_DONGLE
+    depends on ZMK_SPLIT && BT_SMP
     help
-      Remove all legacy host and split Bluetooth bonds once, save a persistent
-      migration marker, and reboot. Subsequent boots keep the newly established
-      bonds normally.
+      Recover a mismatched split bond when Zephyr reports that the peer no
+      longer has the corresponding encryption key. Only the failed peer bond
+      is removed; the connection is then re-established and paired normally.
 
 config CHARY_FORCE_LEGACY_SPLIT_PAIRING
     bool

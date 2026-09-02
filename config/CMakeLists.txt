@@ -1,6 +1,6 @@
 zephyr_library()
-zephyr_library_sources_ifdef(CONFIG_CHARY_BOND_REPAIR_ONCE
-                             src/bond_repair_once.c)
+zephyr_library_sources_ifdef(CONFIG_CHARY_SPLIT_BOND_RECOVERY
+                             src/split_bond_recovery.c)
 zephyr_library_sources_ifdef(CONFIG_CHARY_SPLIT_PERIPHERAL_RECOVERY
                              src/split_peripheral_recovery.c)
 
