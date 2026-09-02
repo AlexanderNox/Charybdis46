@@ -15,7 +15,7 @@
 LOG_MODULE_REGISTER(chary_bond_repair, LOG_LEVEL_INF);
 
 #define REPAIR_SETTINGS_ROOT "chary_repair"
-#define REPAIR_SETTINGS_KEY REPAIR_SETTINGS_ROOT "/bond_v1"
+#define REPAIR_SETTINGS_KEY REPAIR_SETTINGS_ROOT "/bond_v2"
 #define REPAIR_MARKER 0xA5
 
 static bool repair_already_complete;
@@ -38,7 +38,7 @@ static void clear_stale_power_warning(void) {
 
 static int repair_settings_set(const char *name, size_t len, settings_read_cb read_cb,
                                void *cb_arg) {
-    if (!settings_name_steq(name, "bond_v1", NULL) || len != sizeof(uint8_t)) {
+    if (!settings_name_steq(name, "bond_v2", NULL) || len != sizeof(uint8_t)) {
         return -ENOENT;
     }
 
