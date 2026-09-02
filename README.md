@@ -9,3 +9,7 @@ When upgrading from firmware using the `bond_v1` migration, flash the dongle
 and both halves from the same CI artifact. The `bond_v2` migration clears stale
 split bonds once on every part so they can establish matching bonds again.
 
+The normal CI artifact intentionally does not contain `settings_reset`.
+Flashing that recovery image erases Bluetooth bonds and must not be part of a
+regular firmware update.
+
