@@ -47,28 +47,28 @@ endif()
 if(CONFIG_CHARY_SKIP_SPLIT_LAYOUT_SYNC)
   # ZMK 0.3 unconditionally writes the selected physical-layout index after
   # discovering every peripheral. This keyboard has only one layout, and the
-  # write wedges the affected legacy-paired controller. Keep the characteristic
-  # discovery intact but leave its handle invalid so all later sync attempts
-  # safely return -EAGAIN.
+  # write wedges the affected legacy-paired controller. Keep the discovered
+  # handle valid because ZMK also uses it to decide that GATT discovery is
+  # complete, but make the unused update itself a successful no-op.
   set(chary_split_central_source
       "${APPLICATION_SOURCE_DIR}/src/split/bluetooth/central.c")
   file(READ "${chary_split_central_source}" chary_split_central_contents)
-  set(chary_layout_handle_original
-      "slot->selected_physical_layout_handle = bt_gatt_attr_value_handle(attr);")
-  set(chary_layout_handle_disabled
-      "slot->selected_physical_layout_handle = 0; /* Chary46 has one fixed layout. */")
+  set(chary_layout_update_original
+      "static int update_peripheral_selected_layout(struct peripheral_slot *slot, uint8_t layout_idx) {\n    if (slot->state != PERIPHERAL_SLOT_STATE_CONNECTED) {")
+  set(chary_layout_update_disabled
+      "static int update_peripheral_selected_layout(struct peripheral_slot *slot, uint8_t layout_idx) {\n    if (IS_ENABLED(CONFIG_CHARY_SKIP_SPLIT_LAYOUT_SYNC)) {\n        return 0; /* Chary46 has one fixed layout. */\n    }\n\n    if (slot->state != PERIPHERAL_SLOT_STATE_CONNECTED) {")
   string(FIND "${chary_split_central_contents}"
-              "${chary_layout_handle_original}" chary_layout_handle_pos)
-  if(NOT chary_layout_handle_pos EQUAL -1)
-    string(REPLACE "${chary_layout_handle_original}"
-                   "${chary_layout_handle_disabled}"
+              "${chary_layout_update_original}" chary_layout_update_pos)
+  if(NOT chary_layout_update_pos EQUAL -1)
+    string(REPLACE "${chary_layout_update_original}"
+                   "${chary_layout_update_disabled}"
                    chary_split_central_contents
                    "${chary_split_central_contents}")
     file(WRITE "${chary_split_central_source}"
                "${chary_split_central_contents}")
   else()
     string(FIND "${chary_split_central_contents}"
-                "${chary_layout_handle_disabled}" chary_layout_disabled_pos)
+                "${chary_layout_update_disabled}" chary_layout_disabled_pos)
     if(chary_layout_disabled_pos EQUAL -1)
       message(FATAL_ERROR
               "Unable to disable ZMK split physical-layout synchronization")
