@@ -34,3 +34,23 @@ config CHARY_SKIP_SPLIT_LAYOUT_SYNC
       Do not send the selected physical layout to split peripherals. Chary46
       has one fixed physical layout and Studio is disabled, while this unused
       write stalls the affected legacy-paired links until supervision timeout.
+
+config CHARY_SPLIT_PERIPHERAL_RECOVERY
+    bool "Recover a split peripheral after a lost connection"
+    default y if SHIELD_CHARY_LEFT || SHIELD_CHARY_RIGHT
+    depends on ZMK_SPLIT && !ZMK_SPLIT_ROLE_CENTRAL
+    help
+      Reboot a peripheral if a previously working split connection does not
+      return within CHARY_SPLIT_PERIPHERAL_RECOVERY_TIMEOUT seconds. The
+      recovery is armed only after the peripheral has connected once since
+      boot, so an unavailable dongle cannot cause a reboot loop.
+
+config CHARY_SPLIT_PERIPHERAL_RECOVERY_TIMEOUT
+    int "Lost split connection recovery timeout (seconds)"
+    default 30
+    range 5 600
+    depends on CHARY_SPLIT_PERIPHERAL_RECOVERY
+    help
+      How long a peripheral waits for normal Bluetooth reconnection before
+      performing the cold reboot that would otherwise require pressing the
+      controller reset button.

@@ -1,6 +1,8 @@
 zephyr_library()
 zephyr_library_sources_ifdef(CONFIG_CHARY_BOND_REPAIR_ONCE
                              src/bond_repair_once.c)
+zephyr_library_sources_ifdef(CONFIG_CHARY_SPLIT_PERIPHERAL_RECOVERY
+                             src/split_peripheral_recovery.c)
 
 if(CONFIG_CHARY_FORCE_LEGACY_SPLIT_PAIRING)
   # The generated Kconfig still enables Secure Connections through ZMK's
