@@ -47,7 +47,7 @@ config CHARY_SPLIT_PERIPHERAL_RECOVERY
 
 config CHARY_SPLIT_PERIPHERAL_RECOVERY_TIMEOUT
     int "Lost split connection recovery timeout (seconds)"
-    default 30
+    default 8
     range 5 600
     depends on CHARY_SPLIT_PERIPHERAL_RECOVERY
     help
